@@ -1,0 +1,34 @@
+#! /data/data/com.termux/files/usr/bin/bash
+#
+#vim: set ft=sh
+
+TERMUX_DIR="/data/data/com.termux/files"
+
+
+function set_neofetch {
+    local shellName=`basename $SHELL`
+    if [ "$shellName" == "zsh" ]; then
+        neofetch --ascii_distro Debian
+    fi
+}
+
+
+function add_new_path {
+    export PATH="${PATH}:${TERMUX_DIR}/home/bin"
+}
+
+
+function is_frist {
+    if [ -z "$COUNT" ]; then
+       export "COUNT=${0} + 1"
+       echo true
+    fi
+}
+
+
+function main {
+    if is_frist; then
+        add_new_path
+	set_neofetch
+    fi
+
