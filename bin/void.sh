@@ -1,13 +1,13 @@
 #! /usr/bin/env bash 
 
-VOID="$HOME/Trash"
+VOID="/sdcard/Void.d"
 
 if ! [[ -d $VOID ]]; then
     mkdir "$VOID"
     exit 1
 fi
 
-if [[ $(ls -A $VOID | wc -l) -gt 0 ]]; then
+if [[ $(wc -l <<< $(ls -A $VOID)) -gt 0 ]]; then
     rm -r -f $VOID/*
     exit 0
 fi
