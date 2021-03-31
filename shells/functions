@@ -1,0 +1,33 @@
+# Simplify apt
+function show () {
+     apt-cache search $1
+}
+
+# change up a variable of directories
+function cu () {
+    # usage: 
+    # cu 1 = cd ../
+    # cu 2 = cd ../../
+    local count=$1
+    if [ -z "$count" ]; then
+        count=1
+    fi
+    local i path=""
+    for i in $(seq 1 ${count}); do
+        path="{$path}../"
+    done
+
+    cd $path
+} 
+
+function vimlast () {
+    $(cd ${PWD}); {
+    if [ -d .git ]; then
+        awk '{if ($1 == "??") print $2}' <<< $(git status -s) # | vim -p
+    else 
+        echo "A git repository is required."
+    fi
+    }
+}
+
+
