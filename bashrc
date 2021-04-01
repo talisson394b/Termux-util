@@ -9,6 +9,7 @@ case $- in
 esac
 
 # History control
+HISTCONTROL=ignoredumps
 HISTSIZE=100
 HISTFILESIZE=200
 
@@ -16,27 +17,31 @@ HISTFILESIZE=200
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+export EDITOR="/data/data/com.termux/files/usr/bin/vim"
+export PATH="${PATH}:${HOME}/Bin"
+
 # set a fancy prompt
 case "$TERM" in 
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
+# Prompt:
+# 'user' in 'dir'
+#  >
 if [ "$color_prompt" = yes ]; then
-    color0="\[\[00;m\]"    # Reset
-    color1="\[\[00;31m\]"  # Red
-    color2="\[\[00;32m\]"  # Green
-    color3="\[\[00;34m\]"  # Blue
+    color0='\[\033[00;m\]'    # Reset
+    color1='\[\033[00;31m\]'  # Red
+    color2='\[\033[00;32m\]'  # Green
+    color3='\[\033[00;34m\]'  # Blue
     
-    # user in dir \n >
-    export PS1="${color2}\u  ${color0}in \w${color3}\n ${color1}>${color0} "
-    
+    export PS1="${color2}\u ${color0}in ${color3}\w\n ${color1}>${color0} "
     unset color0 color1 color2 color3
 else
-    export PS1="\w $ "
+    export PS1="\u in \w\n $ "
 fi
 
 unset color_prompt
 
-source .shells/functions
-source .shells/alias
+source ~/.shells/functions
+source ~/.shells/alias
 
