@@ -1,0 +1,15 @@
+# vim: set filetype=sh
+
+# Shell shortcuts
+alias ls='ls --sort=extension --color=auto'
+alias la='ls -a'
+alias ll='ls -l'
+alias :q='exit'
+
+root="/data/data/com.termux/files/"
+if [ -x "${root}/usr/bin/dircolors" ]; then
+    alias dir='dir --color=auto'
+    alias grep='grep --color-auto'
+fi
+
+
