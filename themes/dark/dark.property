@@ -1,0 +1,24 @@
+# ~/.termux/themes/dark
+# Dark
+
+background=#2e3440
+foreground=#d8dee9
+
+color0=#bfc2d3
+color1=#a55a7e
+color2=#569184
+color3=#ffd573
+color4=#5fbad6
+color5=#b48ead
+color6=#88c0d0
+color7=#5f617b
+
+color8=#d8dee9
+color9=#bf616a
+color10=#a3be8c
+color11=#ebcb8b
+color12=#81a1c1
+color13=#ffa19f
+color14=#73d2d4
+color15=#4c566a
+
